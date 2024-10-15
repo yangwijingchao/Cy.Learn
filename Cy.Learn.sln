@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34525.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cy.IdentityServer", "Cy.IdentityServer\Cy.IdentityServer.csproj", "{E6C77C8C-6C09-4F3E-AD20-245178A9F0E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DuendeDemo", "DuendeDemo\DuendeDemo.csproj", "{EA58EDA9-D1E9-4E0A-A7BF-90792CF815A9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E6C77C8C-6C09-4F3E-AD20-245178A9F0E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6C77C8C-6C09-4F3E-AD20-245178A9F0E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6C77C8C-6C09-4F3E-AD20-245178A9F0E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6C77C8C-6C09-4F3E-AD20-245178A9F0E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA58EDA9-D1E9-4E0A-A7BF-90792CF815A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA58EDA9-D1E9-4E0A-A7BF-90792CF815A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA58EDA9-D1E9-4E0A-A7BF-90792CF815A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA58EDA9-D1E9-4E0A-A7BF-90792CF815A9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9ACC3FD3-7E20-4361-BFA7-10F4328385DA}
+	EndGlobalSection
+EndGlobal
