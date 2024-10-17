@@ -3,11 +3,12 @@
 using Cy.IdentityServer;
 
 var builder = WebApplication.CreateBuilder(args);
-
-var app = builder.ConfigureServices()
-    .ConfigurePipeline();
-
-
+//客户端许可
+//var app = builder.ConfigureServices()
+//    .ConfigurePipeline();
+//OIDC
+var app = builder.ConfigureServices2()
+    .ConfigurePipeline2();
 
 
 

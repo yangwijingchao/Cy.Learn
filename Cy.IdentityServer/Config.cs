@@ -5,12 +5,7 @@ namespace Cy.IdentityServer
     public static class Config
     {
 
-        //// 返回一个IdentityResource对象的集合
-        public static IEnumerable<IdentityResource> IdentityResources => new IdentityResource[]
-        {
-            // 创建一个IdentityResource对象，并设置其名称和描述
-            new IdentityResources.OpenId(),
-        };
+       
 
         // 返回一个ApiScope的集合
         public static IEnumerable<ApiScope> ApiScopes => new ApiScope[]
