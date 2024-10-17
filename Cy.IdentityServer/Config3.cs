@@ -1,10 +1,11 @@
 ﻿using Duende.IdentityServer;
 using Duende.IdentityServer.Models;
 using Duende.IdentityServer.Test;
+using IdentityModel;
 
 namespace Cy.IdentityServer
 {
-    public static class Config2
+    public static class Config3
     {
 
 
@@ -76,6 +77,18 @@ namespace Cy.IdentityServer
             new IdentityResources.OpenId(),
             // 创建一个IdentityResources.Profile类型的IdentityResource对象
             new IdentityResources.Profile(),
+            // 创建一个新的IdentityResource对象
+            new IdentityResource()
+            {
+                // 设置Name属性为"verification"
+                Name = "verification",
+                // 设置UserClaims属性为一个包含JwtClaimTypes.Email和JwtClaimTypes.EmailVerified的List<string>
+                UserClaims = new List<string>()
+                {
+                    JwtClaimTypes.Email,
+                    JwtClaimTypes.EmailVerified
+                }
+            }
         };
         // 定义一个静态属性，返回一个TestUser类型的列表
         //3.测试用户
