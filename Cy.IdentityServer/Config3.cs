@@ -58,11 +58,15 @@ namespace Cy.IdentityServer
                 RedirectUris = { "https://localhost:5002/signin-oidc" },
                 // 设置PostLogoutRedirectUris为"https://localhost:5002/signout-callback-oidc"
                 PostLogoutRedirectUris = { "https://localhost:5002/signout-callback-oidc" },
+                // 若要允许 网络 客户端请求刷新令牌
+                AllowOfflineAccess = true,
                 // 设置AllowedScopes为IdentityServerConstants.StandardScopes.OpenId和IdentityServerConstants.StandardScopes.Profile
                 AllowedScopes = new List<string>
                 {
                     IdentityServerConstants.StandardScopes.OpenId,
-                    IdentityServerConstants.StandardScopes.Profile
+                    IdentityServerConstants.StandardScopes.Profile,
+                    "verification",
+                    "api1"
                 },
                 // 设置RequireConsent为true是否支持授权操作页面与 options.GetClaimsFromUserInfoEndpoint=true;结合使用
                 RequireConsent = true
@@ -80,15 +84,14 @@ namespace Cy.IdentityServer
             // 创建一个新的IdentityResource对象
             new IdentityResource()
             {
-                // 设置Name属性为"verification"
-                Name = "verification",
-                // 设置UserClaims属性为一个包含JwtClaimTypes.Email和JwtClaimTypes.EmailVerified的List<string>
-                UserClaims = new List<string>()
+                Name="verification",
+                UserClaims = new List<string>
                 {
                     JwtClaimTypes.Email,
                     JwtClaimTypes.EmailVerified
                 }
             }
+           
         };
         // 定义一个静态属性，返回一个TestUser类型的列表
         //3.测试用户

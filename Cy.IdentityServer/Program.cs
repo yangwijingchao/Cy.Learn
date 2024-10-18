@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 //客户端许可
 //var app = builder.ConfigureServices()
 //    .ConfigurePipeline();
-//OIDC
+//OIDC 
 //var app = builder.ConfigureServices2()
 //    .ConfigurePipeline2();
 

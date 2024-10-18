@@ -1,4 +1,7 @@
 ﻿
+using Duende.IdentityServer;
+using Microsoft.IdentityModel.Tokens;
+
 namespace Cy.IdentityServer
 {
     public static class HostingExtensions3
@@ -11,6 +14,35 @@ namespace Cy.IdentityServer
             // client_secret:secret
             // grant_type:client_credentials
             // 添加IdentityServer服务
+            // 添加身份验证服务
+            builder.Services.AddAuthentication()
+                // 添加Google身份验证
+                .AddGoogle("Google", options =>
+                {
+                    // 设置登录方案
+                    options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
+                    // 设置客户端ID
+                    options.ClientId = "your client id";
+                    // 设置客户端密钥
+                    options.ClientSecret = "your client secret";
+                })
+                .AddOpenIdConnect("oidc", "IdentityServer", options =>
+                {
+                    options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
+                    options.SignOutScheme = IdentityServerConstants.SignoutScheme;
+                    options.SaveTokens = true;
+
+                    options.Authority = "https://demo.duendesoftware.com";
+                    options.ClientId = "interactive.confidential";
+                    options.ClientSecret = "secret";
+                    options.ResponseType = "code";
+
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        NameClaimType = "name",
+                        RoleClaimType = "role"
+                    };
+                }); 
             builder.Services.AddIdentityServer()
                 // 添加内存中的身份资源 2.配置OIDC范围
                 .AddInMemoryIdentityResources(Config3.IdentityResources)
@@ -20,7 +52,7 @@ namespace Cy.IdentityServer
                 .AddInMemoryClients(Config3.Clients)
                 // 3.测试用户
                 .AddTestUsers(Config3.TestUsers);
-                
+
             return builder.Build();
 
         }

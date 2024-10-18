@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
-
+using Duende.AccessTokenManagement.OpenIdConnect;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -35,10 +35,12 @@ builder.Services.AddAuthentication(options =>
         options.Scope.Add("profile");
 
         #region 添加更多验证
-        //options.Scope.Add("verification");
-        //options.ClaimActions.MapJsonKey("email_verified", "email_verified");
+        options.Scope.Add("verification");
+        options.ClaimActions.MapJsonKey("email_verified", "email_verified");
 
         #endregion
+        options.Scope.Add("api1");
+        options.Scope.Add("offline_access");
         // 从用户信息端点获取声明 
         options.GetClaimsFromUserInfoEndpoint=true;
         // 不映射传入的声明
@@ -46,6 +48,11 @@ builder.Services.AddAuthentication(options =>
         // 保存令牌
         options.SaveTokens = true;
     });
+builder.Services.AddOpenIdConnectAccessTokenManagement().AddUserAccessTokenHttpClient("apiClient",
+    configureClient: client =>
+    {
+        client.BaseAddress = new Uri("https://localhost:6001");
+    }); ;
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
