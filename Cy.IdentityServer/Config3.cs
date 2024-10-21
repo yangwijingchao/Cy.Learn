@@ -70,6 +70,22 @@ namespace Cy.IdentityServer
                 },
                 // 设置RequireConsent为true是否支持授权操作页面与 options.GetClaimsFromUserInfoEndpoint=true;结合使用
                 RequireConsent = true
+            },
+            // JavaScript BFF Client
+            new Client
+            {
+                    ClientId = "bff",
+                    ClientSecrets = {new Secret("secret".Sha256())},
+                    AllowedGrantTypes = GrantTypes.Code,
+                    RedirectUris = { "https://localhost:5003/signin-oidc" },
+                    PostLogoutRedirectUris  = { "https://localhost:5003/signout-callback-oidc" },
+                    AllowOfflineAccess = true,
+                    AllowedScopes = new List<string>
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        "api1"
+                    },
             }
         };
 
