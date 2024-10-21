@@ -20,17 +20,23 @@ namespace Cy.IdentityServerEntityFramework
             builder.Services.AddAuthentication();
             var migrationsAssembly = builder.Environment.ApplicationName;
             const string connectionString = "Data Source=localhost;Database=IdentityServer;User ID=root;Password=root;TreatTinyAsBoolean=true;";
+            // 添加IdentityServer服务
             builder.Services.AddIdentityServer()
+                // 添加配置存储
                 .AddConfigurationStore(options =>
                 {
+                    // 配置MySQL数据库上下文
                     options.ConfigureDbContext = b => b.UseMySQL(connectionString,
                         mySqlOptionsAction => mySqlOptionsAction.MigrationsAssembly(migrationsAssembly));
                 })
+                // 添加操作存储
                 .AddOperationalStore(options =>
                 {
+                    // 配置MySQL数据库上下文
                     options.ConfigureDbContext = b => b.UseMySQL(connectionString,
                         mySqlOptionsAction => mySqlOptionsAction.MigrationsAssembly(migrationsAssembly));
                 })
+                // 添加测试用户
                 .AddTestUsers(Config.TestUsers)
                 ;
 
