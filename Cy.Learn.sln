@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebClient", "WebClient\WebC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cy.IdentityServerEntityFramework", "Cy.IdentityServerEntityFramework\Cy.IdentityServerEntityFramework.csproj", "{45AEE83F-A741-4BFD-8209-B02548FF1FCC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cy.IdentityServerAspNetIdentity", "Cy.IdentityServerAspNetIdentity\Cy.IdentityServerAspNetIdentity.csproj", "{E2A78973-D507-47CC-B6F1-9A04C2AD1BA5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cy.IdentityServerAspNetIdentity", "Cy.IdentityServerAspNetIdentity\Cy.IdentityServerAspNetIdentity.csproj", "{E2A78973-D507-47CC-B6F1-9A04C2AD1BA5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JavaScriptClient", "JavaScriptClient\JavaScriptClient.csproj", "{305C65C1-9888-4122-9E3C-36D2D0E174FE}"
 EndProject
